@@ -78,3 +78,20 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- Personal Keymaps
+
+-- Make yank behave like C, D, etc 
+keymap("n","Y", "y$", opts)
+
+-- Moving text
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
+keymap("i", "<C-j>", "<C-O>:m .+1<CR><C-O>==", opts)
+keymap("i", "<C-k>", "<C-O>:m .-2<CR><C-O>==", opts)
+keymap("n", "<leader>j", ":m .+1<CR>==", opts)
+keymap("n", "<leader>k", ":m .-2<CR>==", opts)
+
+-- yank and paste to clipboard registers with leader key
+keymap("v", "<leader>y", "\"*y", opts )
+keymap("n", "<leader>p", "\"*p", opts )
